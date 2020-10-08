@@ -13,6 +13,7 @@ class Searchbar extends Component {
             <label>Image Search</label>
             <input
               type="text"
+              placeholder="Search by tag or regular name"
               value={this.state.term}
               onChange={(e) => this.setState({ term: e.target.value })}
             />

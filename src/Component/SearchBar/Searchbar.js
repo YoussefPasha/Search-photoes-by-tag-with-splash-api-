@@ -1,13 +1,21 @@
 import React, { Component } from "react";
-import axios from "axios";
 class Searchbar extends Component {
+  state = { term: "" };
+  onFormSubmit = (e) => {
+    e.preventDefault();
+    this.props.onSubmit(this.state.term);
+  };
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form className="ui form" onSubmit={this.onFormSubmit}>
           <div className="field">
             <label>Image Search</label>
-            <input type="text" onChange={this.ChangeHandler} />
+            <input
+              type="text"
+              value={this.state.term}
+              onChange={(e) => this.setState({ term: e.target.value })}
+            />
           </div>
         </form>
       </div>
